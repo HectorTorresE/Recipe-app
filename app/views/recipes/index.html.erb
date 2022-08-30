@@ -1,0 +1,32 @@
+<div class="flex flex-row justify-between">
+  <h1 class="text-xl font-bold">Recipes</h1>
+  <%# <%= link_to 'New Recipes', class: "bg-sky-500 hover:bg-sky-600 font-bold rounded-md p-2" %>
+</div>
+<% @recipes.each do |recipe| %>
+  <div class="rounded-md border border-zinc-300 p-2 mb-4 bg-white/60">
+    <div class="flex">
+      <div class="w-1/4 m-2">
+        <h2
+          class="
+            font-semibold
+            text-md
+            underline
+            underline-offset-2
+          "
+        ><%= recipe.name %>
+        </h2>
+        <p class="text-sm font-bold pb-2 pt-2">Preparation time:
+          <%= recipe.preparation_time %>
+          cooking time:
+          <%= recipe.cooking_time %>
+        </p>
+        <a href="#" class=" bg-sky-600 hover:bg-sky-700 font-bold rounded-md p-2 text-white">Remove</a>
+      </div>
+      <div class="w-3/4">
+        <h3 class="text-sm font-bold"> Description:
+        <p class="text-sm my-2 font-normal text-clip"><%= recipe.description %></p>
+        </h3>
+      </div>
+    </div>
+  </div>
+<% end %>
