@@ -1,0 +1,33 @@
+<div class="flex flex-row justify-between">
+  <h1 class="text-xl font-bold">Public Recipes</h1>
+</div>
+<% @recipes.each do |recipe| %>
+  <div class="rounded-md border border-zinc-300 p-2 mb-4 bg-white/60">
+    <div class="flex m-2">
+      <div class="w-1/2">
+        <h2
+          class="
+            font-semibold
+            text-md
+            text-sky-600
+            hover:text-sky-700
+            underline
+            underline-offset-2
+          "
+        ><%= recipe.name %>
+        </h2>
+        <a href="#" class="text-sm font-bold">By:
+          <%= recipe.user.name %></a>
+      </div>
+      <div class="w-1/2">
+        <h3 class="text-sm font-bold">
+          Total food items: 4
+        </h3>
+         <h3 class="text-sm font-bold">
+          Total price: $203
+        </h3>
+      </div>
+    </div>
+
+  </div>
+<% end %>
