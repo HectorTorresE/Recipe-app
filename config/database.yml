@@ -18,7 +18,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: postgres
-  password: dangelojan
+  password: 2726
   host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
@@ -84,4 +84,4 @@ production:
   <<: *default
   database: Recipe_app_production
   username: postgres
-  password: dangelojan
+  password: 2726
