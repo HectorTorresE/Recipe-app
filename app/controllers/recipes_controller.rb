@@ -11,7 +11,9 @@ class RecipesController < ApplicationController
 
   def create
     permitted = params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
-    @recipe = Recipe.new(user: current_user, name: permitted[:name], preparation_time: permitted[:preparation_time], cooking_time: permitted[:cooking_time], description: permitted[:description], public?: permitted[:public])
+    @recipe = Recipe.new(user: current_user, name: permitted[:name], preparation_time: permitted[:preparation_time],
+                         cooking_time: permitted[:cooking_time], description: permitted[:description],
+                         public?: permitted[:public])
     if @recipe.valid? && @recipe.save
       redirect_to recipes_path
     else
