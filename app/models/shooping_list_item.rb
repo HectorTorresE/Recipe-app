@@ -1,4 +1,4 @@
-class Shopping_List_Item
+class ShoppingListItem
   attr_accessor :required_quantity, :food
 
   def initialize(food, required_quantity)
