@@ -3,7 +3,7 @@ require_relative '../models/shopping_list_item'
 class ShoppingListController < ApplicationController
   def index
     @shopping_list = []
-    @recipes = Receipt.all
+    @recipes = Recipe.all
     @recipes.each do |recipe|
       recipe.recipe_foods.includes([:food]).each do |recipe_food|
         if recipe_food.quantity > recipe_food.food.quantity
