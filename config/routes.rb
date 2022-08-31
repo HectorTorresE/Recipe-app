@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   
   root 'foods#index'
   resources :public_recipes
-  resources :foods
+  resources :foods, only[:index, :new, :create, :destroy]
   resources :recipes
+  resources :shopping_list, only[:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

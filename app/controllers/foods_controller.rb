@@ -1,13 +1,10 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: %i[show destroy]
+  before_action :set_food, only: %i[destroy]
 
   # GET /foods or /foods.json
   def index
     @foods = Food.all
   end
-
-  # GET /foods/1 or /foods/1.json
-  def show; end
 
   # GET /foods/new
   def new
