@@ -28,4 +28,28 @@
     <%= link_to "Show this food", food, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
+
+
+
+<table class="table-auto">
+  <thead>
+    <tr>
+      <th>food</th>
+      <th>measurement unit</th>
+      <th>unit price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @foods.each do |food|%>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.measurement_unit %></td>
+      <td>$<%= food.price %></td>
+      <td><%= button_to 'Delete', food_path(food.id), :method => :delete %></td>
+    </tr>
+  <% end %>  
+  </tbody>
+</table>
+
 </div>
