@@ -1,4 +1,4 @@
-.table-container{
+.table-container {
   margin: auto;
   text-align: left;
 }
@@ -31,5 +31,5 @@ button {
 }
 
 button:hover {
-  color: #f00;
+  color: #f000;
 }
