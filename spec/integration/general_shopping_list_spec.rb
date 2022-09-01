@@ -9,8 +9,8 @@ RSpec.describe 'General Shopping List', type: :feature do
       User.destroy_all
       @first_user = User.create(name: 'Jhon', email: 'test@gmail.com', password: 'password')
       @first_food = Food.create(name: 'food 1', measurement_unit: 'bag', price: 1, quantity: 3, user: @first_user)
-      @recipe_food = Recipe.create(name: 'recipe', preparation_time: 0.5, cooking_time: 1, description: 'description', public: true,
-                              user: @first_user)
+      @recipe_food = Recipe.create(name: 'recipe', preparation_time: 0.5, cooking_time: 1, description: 'description',
+                                   public: true, user: @first_user)
       RecipeFood.create(quantity: 5, recipe: @recipe_food, food: @first_food)
       visit('http://localhost:3000')
       fill_in 'user_email', with: @first_user.email
