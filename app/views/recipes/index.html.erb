@@ -10,17 +10,19 @@
           class="
             font-semibold
             text-md
+            text-sky-600
+            hover:text-sky-700
             underline
             underline-offset-2
           "
-        ><%= recipe.name %>
+        ><%= link_to recipe.name, recipe_path(recipe.id) %>
         </h2>
         <p class="text-sm font-bold pb-2 pt-2">Preparation time:
           <%= recipe.preparation_time %>
           cooking time:
           <%= recipe.cooking_time %>
         </p>
-        <%=button_to "Delete", recipe_path(recipe.id), method: :delete %>
+        <%= button_to "Delete", recipe_path(recipe.id), method: :delete %>
 
       </div>
       <div class="w-3/4">

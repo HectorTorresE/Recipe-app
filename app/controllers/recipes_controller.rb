@@ -25,15 +25,6 @@ class RecipesController < ApplicationController
     redirect_to recipe_path if Recipe.destroy(params[:id])
   end
 
-  private
-
-  def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
-  end
-
-
-
-  #################################
   def show
     @recipe = Recipe.find(params[:id])
   end
@@ -60,5 +51,11 @@ class RecipesController < ApplicationController
     @food = RecipeFood.includes([:food]).find(params[:id])
     @recipe.recipe_foods.delete(@food)
     redirect_to recipes_path
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
