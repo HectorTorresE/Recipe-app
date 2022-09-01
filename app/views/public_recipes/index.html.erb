@@ -21,10 +21,10 @@
       </div>
       <div class="w-1/2">
         <h3 class="text-sm font-bold">
-          Total food items: 4
+          Total food items: <%= recipe.recipe_foods.length%>
         </h3>
          <h3 class="text-sm font-bold">
-          Total price: $203
+          Total price: $<%= recipe.recipe_foods.inject(0) { |sum , recipe_foods| sum + recipe_foods.quantity * recipe_foods.food.price } %>
         </h3>
       </div>
     </div>

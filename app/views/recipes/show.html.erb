@@ -1,29 +1,37 @@
 <div>
-  <h2><%=@recipe.name%></h2>
-  <div>
+  <h2 class="recipe-title"><%=@recipe.name%></h2>
+  <div class="recipe-container">
     <div>
-      <p>Preparation Time : <%= @recipe.preparation_time %></p>
-      <p>Cooking Time : <%= @recipe.cooking_time %></p>
-      <p><%=@recipe.description %></p>
+      <p class="p-info">Preparation Time : <%= @recipe.preparation_time %> hours</p>
+      <p class="p-info">Cooking Time : <%= @recipe.cooking_time %> hours</p>
+      <p class="p-info"><%=@recipe.description %></p>
     </div>
     <div>
-      <label>Public</label>
-      <%= check_box_tag 'isPublic', 'no', @recipe.public, class: "name", disabled: true %>
+      <% if @recipe.public? %>
+        <label class="content-public">Public
+          <%= check_box_tag 'isPublic', 'no', @recipe.public, class: "name", disabled: true %>
+        </label>
+      <% else %>
+        <label class="content-no-public">Public
+          <%= check_box_tag 'isPublic', 'no', @recipe.public, class: "name", disabled: true %>
+        </label>
+      <% end %>
     </div>
   </div>
 
-  <div>
+  <div class="buttons-container">
     <div>
       <button>
-        <%= link_to "Generate shopping list", shopping_list_index_path(current_user) %>
+        <%= link_to "Generate shopping list", shopping_list_index_path(current_user), {:class => "food-buttons"} %>
       </button>
     </div>
     <div>
       <button>
-        <%= link_to "Add Ingredient", recipe_add_food_path(recipe_id: @recipe.id) %>
+        <%= link_to "Add Ingredient", recipe_add_food_path(recipe_id: @recipe.id), {:class => "food-buttons"} %>
       </button>
     </div>
   </div>
+  
   <hr/>
 
   <table>
