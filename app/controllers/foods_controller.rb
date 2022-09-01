@@ -20,7 +20,6 @@ class FoodsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    redirect_to foods_path(@food)
   end
 
   # DELETE /foods/1 or /foods/1.json
