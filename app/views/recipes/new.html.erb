@@ -9,8 +9,8 @@
   <%= form.label :description, class: "font-bold mx-2 my-4 text-lg"  %>
   <%= form.text_area :description, rows: 5, class: "rounded-md border"  %>
   <div class="felx flex-row">
-  <%= form.label :public?, "Public", class: "font-bold mx-2 my-4 text-lg" %>
-  <%= form.check_box :public?, {}, true, false %>
+  <%= form.label :public, "Public", class: "font-bold mx-2 my-4 text-lg" %>
+  <%= form.check_box :public, checked_value: true, unchecked_value: false %>
   </div>
   <%= form.submit class: "border p-2 bg-sky-500 hover:bg-sky-600 my-2 font-bold rounded-md" %>
 <% end %>

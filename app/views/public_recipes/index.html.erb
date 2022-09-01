@@ -14,7 +14,7 @@
             underline
             underline-offset-2
           "
-        ><%= recipe.name %>
+        ><%= link_to recipe.name, recipe_path(recipe.id) %>
         </h2>
         <a href="#" class="text-sm font-bold">By:
           <%= recipe.user.name %></a>
