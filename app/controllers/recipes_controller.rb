@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    permitted = params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
+    permitted = recipe_params
     @recipe = Recipe.new(user: current_user, name: permitted[:name], preparation_time: permitted[:preparation_time],
                          cooking_time: permitted[:cooking_time], description: permitted[:description],
                          public?: permitted[:public])
@@ -21,8 +21,14 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    redirect_to recipe_path if Recipe.destroy(params[:id])
+  end
+
+  private
+
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public?)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 
   def show; end
