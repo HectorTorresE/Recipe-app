@@ -1,0 +1,16 @@
+<h1 class="text-xl text-center font-bold">New Recipe</h1>
+<%= form_with model: @recipe, html: {class: "text-2xl flex flex-col"} do |form| %>
+  <%= form.label :name, class: "font-bold mx-2 my-4 text-lg" %>
+  <%= form.text_field :name, class: "rounded-md border" %>
+  <%= form.label :preparation_time, "Preparation Time in hours", class: "font-bold mx-2 my-4 text-lg"  %>
+  <%= form.number_field  :preparation_time, in: 0.1..20.0, step: 0.1, class: "rounded-md border"  %>
+  <%= form.label :cooking_time, "Cooking Time in hours", class: "font-bold mx-2 my-4 text-lg"  %>
+  <%= form.number_field  :cooking_time, in: 0.1..20.0, step: 0.1, class: "rounded-md border"  %>
+  <%= form.label :description, class: "font-bold mx-2 my-4 text-lg"  %>
+  <%= form.text_area :description, rows: 5, class: "rounded-md border"  %>
+  <div class="felx flex-row">
+  <%= form.label :public, "Public", class: "font-bold mx-2 my-4 text-lg" %>
+  <%= form.check_box :public, checked_value: true, unchecked_value: false %>
+  </div>
+  <%= form.submit class: "border p-2 bg-sky-500 hover:bg-sky-600 my-2 font-bold rounded-md" %>
+<% end %>

@@ -1,0 +1,22 @@
+<div class="table-container">
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Measurement unit</th>
+        <th>Unit price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="food-items">
+    <% @foods.each do |food|%>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td>$<%= food.price %></td>
+        <td><a><%= button_to 'Delete', food_path(food.id), :method => :delete %></a></td>
+      </tr>
+    <% end %>  
+    </tbody>
+  </table>
+</div>

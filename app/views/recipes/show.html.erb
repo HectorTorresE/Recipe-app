@@ -1,0 +1,60 @@
+<div>
+  <h2 class="recipe-title"><%=@recipe.name%></h2>
+  <div class="recipe-container">
+    <div>
+      <p class="p-info">Preparation Time : <%= @recipe.preparation_time %> hours</p>
+      <p class="p-info">Cooking Time : <%= @recipe.cooking_time %> hours</p>
+      <p class="p-info"><%=@recipe.description %></p>
+    </div>
+    <div>
+      <% if @recipe.public? %>
+        <label class="content-public">Public
+          <%= check_box_tag 'isPublic', 'no', @recipe.public, class: "name", disabled: true %>
+        </label>
+      <% else %>
+        <label class="content-no-public">Public
+          <%= check_box_tag 'isPublic', 'no', @recipe.public, class: "name", disabled: true %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="buttons-container">
+    <div>
+      <button>
+        <%= link_to "Generate shopping list", shopping_list_index_path(current_user), {:class => "food-buttons"} %>
+      </button>
+    </div>
+    <div>
+      <button>
+        <%= link_to "Add Ingredient", recipe_add_food_path(recipe_id: @recipe.id), {:class => "food-buttons"} %>
+      </button>
+    </div>
+  </div>
+  
+  <hr/>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+        <tr>
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %> <%=recipe_food.food.measurement_unit%></td>
+          <td>$ <%= recipe_food.food.price * recipe_food.quantity %></td>
+          <td>
+            <%= link_to 'Modify', recipes_path%>
+            <%= link_to 'Remove', recipe_remove_food_path(recipe_id:@recipe.id,id:recipe_food.id), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

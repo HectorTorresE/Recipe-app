@@ -1,0 +1,2 @@
+module PublicRecepiesHelper
+end
