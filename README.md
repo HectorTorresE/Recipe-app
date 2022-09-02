@@ -13,7 +13,7 @@
 - RSpec
 - PostgreSQL
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://dangelo-recipe-app.herokuapp.com/users/sign_in)
 
